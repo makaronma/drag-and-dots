@@ -61,7 +61,7 @@ function onImageClick(event: MouseEvent) {
   const yPct = Math.max(0, Math.min(100, (y / rect.height) * 100));
 
 
-  dots.value.push({ top: Number(yPct.toFixed(2)), left: Number(xPct.toFixed(2)) })
+  dots.value.push({ top: Number(yPct.toFixed(1)), left: Number(xPct.toFixed(1)) })
 
   // dots.value.push({ top: 10, right: Number(xPct.toFixed(2)) })
 }
@@ -85,12 +85,17 @@ const codes_1 = computed(() => {
   return c
 })
 const codes_2 = computed(() => {
-  let c = '{\n'
+
+  // {
+  //       sku: "22-0050-0-19",
+  //       top: "67%",
+  //       left: "62%",
+  //       url: "{{store direct_url='antony-cabinets01.html'}}",
+  //     },
+  let c = ''
   for (const dot of dots.value) {
-    c += `    { "top": ${dot.top}, "left": ${dot.left} },\n`
+    c += `{\n  sku: "",\n  url: "",\n  top: "${dot.top}%",\n  left: "${dot.left}%"\n}`
   }
-  c += `  ]\n`
-  c += `}`
   return c
 })
 
