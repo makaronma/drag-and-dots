@@ -85,16 +85,9 @@ const codes_1 = computed(() => {
   return c
 })
 const codes_2 = computed(() => {
-
-  // {
-  //       sku: "22-0050-0-19",
-  //       top: "67%",
-  //       left: "62%",
-  //       url: "{{store direct_url='antony-cabinets01.html'}}",
-  //     },
   let c = ''
   for (const dot of dots.value) {
-    c += `{\n  sku: "",\n  url: "",\n  top: "${dot.top}%",\n  left: "${dot.left}%"\n}`
+    c += `{\n  sku: "",\n  url: "",\n  top: "${dot.top}%",\n  left: "${dot.left}%"\n},\n`
   }
   return c
 })
